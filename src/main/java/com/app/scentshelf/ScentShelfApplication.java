@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ScentshelfApplication {
+public class ScentShelfApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ScentshelfApplication.class, args);
+		SpringApplication.run(ScentShelfApplication.class, args);
 	}
 
 }
