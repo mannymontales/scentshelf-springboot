@@ -25,4 +25,8 @@ public class ScentService {
     public Scent get(Long id) {
         return repository.findById(id).get();
     }
+
+    public Scent createScent(Scent scent) {
+        return repository.save(scent);
+    }
 }

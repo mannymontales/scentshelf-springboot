@@ -25,5 +25,9 @@ public class FragranceService {
         return repository.findById(id).get();
     }
 
+    public Fragrance createFragrance(Fragrance fragrance) {
+        return repository.save(fragrance);
+    }
+
 }
 

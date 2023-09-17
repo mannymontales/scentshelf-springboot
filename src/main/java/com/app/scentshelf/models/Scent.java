@@ -1,5 +1,7 @@
 package com.app.scentshelf.models;
 
+import java.io.Serializable;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +10,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor // <--- THIS is it
 @Table(name = "Scent")
-public class Scent {
+public class Scent implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

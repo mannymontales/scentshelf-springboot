@@ -25,4 +25,8 @@ public class NoteService {
     public Note get(Long id) {
         return repository.findById(id).get();
     }
+
+    public Note createNote(Note note) {
+        return repository.save(note);
+    }
 }
