@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.antlr.v4.runtime.misc.NotNull;
 
 //@getter, @setter, @noargsconstruct are part of lombok dependency which basically reduces extra code
@@ -38,6 +42,9 @@ public class Fragrance {
     @Column(name = "image_url")
     private String image_url;
 
+    @OneToMany(mappedBy = "fragrance", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Note> notes = new ArrayList<>();
+
     // Constructor with all fields
     public Fragrance(String name, String brand, String image_url) {
         this.name = name;
@@ -54,6 +61,9 @@ public class Fragrance {
         }
         return id != null && id.equals(((Fragrance) o).id);
     }
+
+
+    
 
     // prettier-ignore
     @Override

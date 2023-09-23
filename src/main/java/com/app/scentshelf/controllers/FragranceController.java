@@ -39,6 +39,10 @@ public class FragranceController {
         return new ResponseEntity<>(fragranceService.get(id), HttpStatus.OK);
     }
 
+
+
+
+    //cant do multiple post at once need to create endpoint that takes in multiple fragrances
     @PostMapping(value = "/example", consumes = {"application/json"})
     public ResponseEntity<Fragrance> create(@RequestBody Fragrance fragrance) {
         return new ResponseEntity<>(fragranceService.createFragrance(fragrance), HttpStatus.CREATED);
