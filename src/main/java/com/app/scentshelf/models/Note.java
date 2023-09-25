@@ -2,6 +2,7 @@ package com.app.scentshelf.models;
 
 
 import com.app.scentshelf.models.enums.NoteType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -23,7 +24,7 @@ public class Note {
     ////@Id//@many to one represents many (this entity) to another entity one (fragrance)
     @ManyToOne //many scent to ONE fragrance, ex. fragrance notes in top, middle, and base but a fragrance only has one set of these
     @JoinColumn(name = "fragrance_id", nullable = false) ////join column used to represent relationship between two entities, fragrance_id is the fk referencing back to the Fragrance table
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonBackReference //review this shit
     private Fragrance fragrance;
 
     //@Id
@@ -41,7 +42,6 @@ public class Note {
         this.scent = scent;
         this.noteType = type;
     }
-
 
     public Long getId() {
         return this.id;

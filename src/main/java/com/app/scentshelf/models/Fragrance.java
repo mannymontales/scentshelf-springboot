@@ -43,7 +43,7 @@ public class Fragrance {
 
     
     @OneToMany(mappedBy = "fragrance")
-    @JsonManagedReference
+    @JsonManagedReference //review this shit DTO, serialization, biderectional relationships, explicitely shaping json response
     private List<Note> notes = new ArrayList<>();
 
     // Constructor with all fields
@@ -62,9 +62,6 @@ public class Fragrance {
         }
         return id != null && id.equals(((Fragrance) o).id);
     }
-
-
-    
 
     // prettier-ignore
     @Override
