@@ -42,7 +42,7 @@ public class Fragrance {
     @Column(name = "image_url")
     private String image_url;
 
-    @OneToMany(mappedBy = "fragrance", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "fragrance")
     private List<Note> notes = new ArrayList<>();
 
     // Constructor with all fields
