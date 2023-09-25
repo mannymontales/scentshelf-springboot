@@ -8,7 +8,8 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.antlr.v4.runtime.misc.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 //@getter, @setter, @noargsconstruct are part of lombok dependency which basically reduces extra code
 //https://www.baeldung.com/intro-to-project-lombok
@@ -31,11 +32,9 @@ public class Fragrance {
     @Column(name = "fragrance_id")
     private Long id;
 
-    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
-    @NotNull
     @Column(name = "brand", nullable = false)
     private String brand;
 
@@ -43,6 +42,7 @@ public class Fragrance {
     private String image_url;
 
     @OneToMany(mappedBy = "fragrance")
+    @JsonManagedReference //review this shit DTO, serialization, biderectional relationships, explicitely shaping json response
     private List<Note> notes = new ArrayList<>();
 
     // Constructor with all fields
@@ -61,9 +61,6 @@ public class Fragrance {
         }
         return id != null && id.equals(((Fragrance) o).id);
     }
-
-
-    
 
     // prettier-ignore
     @Override

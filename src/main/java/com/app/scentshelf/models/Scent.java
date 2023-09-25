@@ -1,9 +1,6 @@
 package com.app.scentshelf.models;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,9 +18,6 @@ public class Scent implements Serializable {
 
     @Column(name = "name")
     private String name;
-
-    @OneToMany(mappedBy = "scent", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Note> notes = new ArrayList<>();
 
     //make sure to validate existing scent name when user inputs stuff for the future
     public Scent(Long id, String name) {
