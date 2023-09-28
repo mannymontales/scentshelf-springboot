@@ -10,6 +10,7 @@ import com.app.scentshelf.repositories.FragranceRepository;
 
 @Service
 public class FragranceService {
+
     private final FragranceRepository repository;
 
     @Autowired
@@ -27,6 +28,23 @@ public class FragranceService {
 
     public Fragrance createFragrance(Fragrance fragrance) {
         return repository.save(fragrance);
+    }
+
+    public Fragrance updateFragrance(Long id, Fragrance newFragranceData) {
+
+        Fragrance originalFragrance = repository.findById(id).get();
+
+        originalFragrance.setName(newFragranceData.getName());
+        originalFragrance.setBrand(newFragranceData.getBrand());
+        originalFragrance.setImage_url(newFragranceData.getImage_url());
+        originalFragrance.setNotes(newFragranceData.getNotes());
+
+        return repository.save(originalFragrance);
+    }
+
+    public Boolean deleteFragrance(Long id) {
+        repository.deleteById(id);
+        return true;
     }
 
 }
