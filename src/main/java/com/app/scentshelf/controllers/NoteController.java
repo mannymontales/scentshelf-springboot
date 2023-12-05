@@ -29,7 +29,7 @@ public class NoteController {
 
     @GetMapping()
     public ResponseEntity<List<Note>> getPersonList() {
-
+            //comment
         return new ResponseEntity<List<Note>>(service.getAllEntities() , HttpStatus.OK);
     }
 
