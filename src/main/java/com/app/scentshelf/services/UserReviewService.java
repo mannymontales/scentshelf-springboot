@@ -15,7 +15,7 @@ public class UserReviewService {
     public ReviewsWrapper getTestData() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        InputStream is = new ClassPathResource("profumo_reviews.json").getInputStream();
+        InputStream is = new ClassPathResource("profumoreviews.json").getInputStream();
 
         ReviewsWrapper reviewsWrapper = objectMapper.readValue(is, ReviewsWrapper.class);
 
