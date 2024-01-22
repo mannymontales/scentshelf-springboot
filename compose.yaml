@@ -1,7 +1,39 @@
+# version: '3.8'
+
+# services:
+#   scentshelf:
+#     build: .
+#     ports:
+#       - '8080:8080'
+#     environment:
+#       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/scentshelf
+#       - SPRING_DATASOURCE_USERNAME=benji
+#       - SPRING_DATASOURCE_PASSWORD=benji
+#     depends_on:
+#       - postgres
+
+
+#   postgres:
+#     image: 'postgres:latest'
+#     environment:
+#       # - 'POSTGRES_DB=mydatabase'
+#       # - 'POSTGRES_PASSWORD=secret'
+#       # - 'POSTGRES_USER=myuser'
+#         - 'POSTGRES_DB=scentshelf'
+#         - 'POSTGRES_PASSWORD=benji'
+#         - 'POSTGRES_USER=benji'
+#     ports:
+#       - '5432'
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+# volumes:
+#   postgres_data:
+
+
 version: '3.8'
 
 services:
-  scentshelf:
+  app:
     build: .
     ports:
       - '8080:8080'
@@ -12,19 +44,16 @@ services:
     depends_on:
       - postgres
 
-
   postgres:
     image: 'postgres:latest'
     environment:
-      # - 'POSTGRES_DB=mydatabase'
-      # - 'POSTGRES_PASSWORD=secret'
-      # - 'POSTGRES_USER=myuser'
-        - 'POSTGRES_DB=scentshelf'
-        - 'POSTGRES_PASSWORD=benji'
-        - 'POSTGRES_USER=benji'
+      - 'POSTGRES_DB=scentshelf'
+      - 'POSTGRES_PASSWORD=benji'
+      - 'POSTGRES_USER=benji'
     ports:
       - '5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
 volumes:
   postgres_data:
